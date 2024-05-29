@@ -19,18 +19,25 @@ let highScoreNumber = Number(document.querySelector('.highscore').innerText);
 // compare between the input number and the generated number
 //when lower message too low if higher message too high
 check.addEventListener('click', function () {
-  if (guess.value == number) {
+  let guessedNumber = Number(document.querySelector('.guess').value);
+  console.log(guessedNumber, typeof guessedNumber);
+  if (guess.value === '' || guessedNumber === NaN) {
+    message.innerHTML = '⛔️ Not a number please try again with a number ...';
+  } else if (guessedNumber < 1 || guessedNumber > 20) {
+    message.innerText =
+      '⛔️ Not a valid number please try a number between 1 and 20';
+  } else if (guessedNumber === number) {
     message.innerHTML = 'Correct number';
     scoreNumber += 1;
     highScoreNumber = scoreNumber;
     score.innerText = String(scoreNumber);
     highScore.innerText = String(highScoreNumber);
     document.body.style.backgroundColor = 'green';
-  } else if (guess.value > number) {
+  } else if (guessedNumber > number) {
     message.innerHTML = 'Too High';
     scoreNumber -= 1;
     score.innerText = String(scoreNumber);
-  } else if (guess.value < number) {
+  } else if (guessedNumber < number) {
     message.innerHTML = ' Too low';
     scoreNumber -= 1;
     score.innerText = String(scoreNumber);
