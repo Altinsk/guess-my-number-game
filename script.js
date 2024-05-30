@@ -34,13 +34,25 @@ check.addEventListener('click', function () {
     highScore.innerText = String(highScoreNumber);
     document.body.style.backgroundColor = 'green';
   } else if (guessedNumber > number) {
-    message.innerHTML = 'Too High';
-    scoreNumber--;
-    score.innerText = String(scoreNumber);
+    if (scoreNumber > 1) {
+      message.innerHTML = 'Too High';
+      scoreNumber--;
+      score.innerText = String(scoreNumber);
+    } else {
+      message.innerHTML = 'You lost the gain, press again to try once more';
+      score.innerText = 0;
+      document.body.style.backgroundColor = 'red';
+    }
   } else if (guessedNumber < number) {
-    message.innerHTML = ' Too low';
-    scoreNumber--;
-    score.innerText = String(scoreNumber);
+    if (scoreNumber > 1) {
+      message.innerHTML = ' Too low';
+      scoreNumber--;
+      score.innerText = String(scoreNumber);
+    } else {
+      message.innerHTML = 'You lost the gain, press again to try once more';
+      score.innerText = 0;
+      document.body.style.backgroundColor = 'red';
+    }
   }
 });
 
