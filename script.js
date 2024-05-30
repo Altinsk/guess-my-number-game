@@ -28,18 +28,18 @@ check.addEventListener('click', function () {
       '⛔️ Not a valid number please try a number between 1 and 20';
   } else if (guessedNumber === number) {
     message.innerHTML = 'Correct number';
-    scoreNumber += 1;
+    scoreNumber++;
     highScoreNumber = scoreNumber;
     score.innerText = String(scoreNumber);
     highScore.innerText = String(highScoreNumber);
     document.body.style.backgroundColor = 'green';
   } else if (guessedNumber > number) {
     message.innerHTML = 'Too High';
-    scoreNumber -= 1;
+    scoreNumber--;
     score.innerText = String(scoreNumber);
   } else if (guessedNumber < number) {
     message.innerHTML = ' Too low';
-    scoreNumber -= 1;
+    scoreNumber--;
     score.innerText = String(scoreNumber);
   }
 });
