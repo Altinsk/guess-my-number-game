@@ -1,6 +1,6 @@
 'use strict';
 
-let number = document.querySelector('.number');
+let number = 20;
 let guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
 const buttonAgain = document.querySelector('.again');
