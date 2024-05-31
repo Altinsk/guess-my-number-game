@@ -64,6 +64,7 @@ buttonAgain.addEventListener('click', function () {
   score.innerText = '20';
   scoreNumber = 20;
   highScore.innerText = '0';
+  number = Math.trunc(Math.random() * 20) + 1;
   document.getElementsByClassName('number')[0].textContent = '?';
   document.querySelector('.number').style.width = '15rem';
 });
