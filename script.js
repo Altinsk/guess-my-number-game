@@ -20,7 +20,6 @@ let highScoreNumber = Number(document.querySelector('.highscore').innerText);
 //when lower message too low if higher message too high
 check.addEventListener('click', function () {
   let guessedNumber = Number(document.querySelector('.guess').value);
-  console.log(guessedNumber, typeof guessedNumber);
   if (guess.value === '' || guessedNumber === NaN) {
     message.innerHTML = '⛔️ Not a number please try again with a number ...';
   } else if (guessedNumber < 1 || guessedNumber > 20) {
@@ -32,7 +31,9 @@ check.addEventListener('click', function () {
     highScoreNumber = scoreNumber;
     score.innerText = String(scoreNumber);
     highScore.innerText = String(highScoreNumber);
-    document.body.style.backgroundColor = 'green';
+    document.body.style.backgroundColor = '#60b347';
+    document.querySelector('.number').textContent = String(number);
+    document.querySelector('.number').style.width = '30rem';
   } else if (guessedNumber > number) {
     if (scoreNumber > 1) {
       message.innerHTML = 'Too High';
@@ -62,5 +63,6 @@ buttonAgain.addEventListener('click', function () {
   message.innerHTML = 'Start guessing..';
   guess.value = '';
   score.innerText = '20';
+  scoreNumber = 20;
   highScore.innerText = '0';
 });
