@@ -1,6 +1,5 @@
 'use strict';
 
-let number = 20;
 let guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
 const buttonAgain = document.querySelector('.again');
@@ -9,7 +8,7 @@ let score = document.querySelector('.score');
 let highScore = document.querySelector('.highscore');
 
 // Function generats numbers beteween 1 and 20
-number = Math.trunc(Math.random() * 20) + 1;
+let number = Math.trunc(Math.random() * 20) + 1;
 console.log(number);
 
 // Convert strings to Numbers
