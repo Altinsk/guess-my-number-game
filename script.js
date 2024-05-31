@@ -59,10 +59,12 @@ check.addEventListener('click', function () {
 
 // Reset button to initialize all variables
 buttonAgain.addEventListener('click', function () {
-  document.body.style.backgroundColor = 'black';
+  document.body.style.backgroundColor = '#222';
   message.innerHTML = 'Start guessing..';
   guess.value = '';
   score.innerText = '20';
   scoreNumber = 20;
   highScore.innerText = '0';
+  document.getElementsByClassName('number')[0].textContent = '?';
+  document.querySelector('.number').style.width = '15rem';
 });
