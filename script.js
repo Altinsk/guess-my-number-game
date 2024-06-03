@@ -3,13 +3,19 @@
 let guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
 const buttonAgain = document.querySelector('.again');
-const message = document.querySelector('.message');
+// const message = document.querySelector('.message');
 let score = document.querySelector('.score');
 let highScore = document.querySelector('.highscore');
 
 // Function generats numbers beteween 1 and 20
 let number = Math.trunc(Math.random() * 20) + 1;
 console.log(number);
+
+// Function to displayMessage
+
+const displayMessage = function (myMessage) {
+  document.querySelector('.message').textContent = myMessage;
+};
 
 // Convert strings to Numbers
 let scoreNumber = Number(document.querySelector('.score').innerText);
@@ -20,15 +26,16 @@ let highScoreNumber = Number(document.querySelector('.highscore').innerText);
 check.addEventListener('click', function () {
   let guessedNumber = Number(document.querySelector('.guess').value);
   if (guess.value === '' || guessedNumber === NaN) {
-    message.innerHTML = '⛔️ Not a number please try again with a number ...';
+    displayMessage('⛔️ Not a number please try again with a number ...');
   } else if (guessedNumber < 1 || guessedNumber > 20) {
-    message.innerText =
-      '⛔️ Not a valid number please try a number between 1 and 20';
+    displayMessage(
+      '⛔️ Not a valid number please try a number between 1 and 20'
+    );
   } else if (guessedNumber === number) {
     if (scoreNumber > highScoreNumber) {
       highScoreNumber = scoreNumber;
     }
-    message.innerHTML = 'Correct number';
+    displayMessage('Correct number');
     score.innerText = String(scoreNumber);
     highScore.innerText = String(highScoreNumber);
     document.body.style.backgroundColor = '#60b347';
@@ -36,21 +43,21 @@ check.addEventListener('click', function () {
     document.querySelector('.number').style.width = '30rem';
   } else if (guessedNumber > number) {
     if (scoreNumber > 1) {
-      message.innerHTML = 'Too High';
+      displayMessage('Too High');
       scoreNumber--;
       score.innerText = String(scoreNumber);
     } else {
-      message.innerHTML = 'You lost the gain, press again to try once more';
+      displayMessage('You lost the gain, press again to try once more');
       score.innerText = 0;
       document.body.style.backgroundColor = 'red';
     }
   } else if (guessedNumber < number) {
     if (scoreNumber > 1) {
-      message.innerHTML = ' Too low';
+      displayMessage(' Too low');
       scoreNumber--;
       score.innerText = String(scoreNumber);
     } else {
-      message.innerHTML = 'You lost the gain, press again to try once more';
+      displayMessage('You lost the gain, press again to try once more');
       score.innerText = 0;
       document.body.style.backgroundColor = 'red';
     }
@@ -60,7 +67,7 @@ check.addEventListener('click', function () {
 // Reset button to initialize all variables
 buttonAgain.addEventListener('click', function () {
   document.body.style.backgroundColor = '#222';
-  message.innerHTML = 'Start guessing..';
+  displayMessage('Start guessing..');
   guess.value = '';
   score.innerText = '20';
   scoreNumber = 20;
