@@ -25,9 +25,10 @@ check.addEventListener('click', function () {
     message.innerText =
       '⛔️ Not a valid number please try a number between 1 and 20';
   } else if (guessedNumber === number) {
+    if (scoreNumber > highScoreNumber) {
+      highScoreNumber = scoreNumber;
+    }
     message.innerHTML = 'Correct number';
-    scoreNumber++;
-    highScoreNumber = scoreNumber;
     score.innerText = String(scoreNumber);
     highScore.innerText = String(highScoreNumber);
     document.body.style.backgroundColor = '#60b347';
@@ -63,7 +64,6 @@ buttonAgain.addEventListener('click', function () {
   guess.value = '';
   score.innerText = '20';
   scoreNumber = 20;
-  highScore.innerText = '0';
   number = Math.trunc(Math.random() * 20) + 1;
   document.getElementsByClassName('number')[0].textContent = '?';
   document.querySelector('.number').style.width = '15rem';
