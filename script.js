@@ -1,18 +1,21 @@
 'use strict';
 
+// Declare variables
 let guess = document.querySelector('.guess');
 const check = document.querySelector('.check');
 const buttonAgain = document.querySelector('.again');
-// const message = document.querySelector('.message');
 let score = document.querySelector('.score');
 let highScore = document.querySelector('.highscore');
+
+// Convert strings to Numbers
+let scoreNumber = Number(document.querySelector('.score').innerText);
+let highScoreNumber = Number(document.querySelector('.highscore').innerText);
 
 // Function generats numbers beteween 1 and 20
 let number = Math.trunc(Math.random() * 20) + 1;
 console.log(number);
 
 // Function to displayMessage
-
 const displayMessage = function (myMessage) {
   document.querySelector('.message').textContent = myMessage;
 };
@@ -21,10 +24,6 @@ const displayMessage = function (myMessage) {
 const changeBackGround = function (myBackground) {
   document.body.style.backgroundColor = myBackground;
 };
-
-// Convert strings to Numbers
-let scoreNumber = Number(document.querySelector('.score').innerText);
-let highScoreNumber = Number(document.querySelector('.highscore').innerText);
 
 // compare between the input number and the generated number
 //when lower message too low if higher message too high
