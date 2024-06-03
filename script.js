@@ -17,6 +17,11 @@ const displayMessage = function (myMessage) {
   document.querySelector('.message').textContent = myMessage;
 };
 
+// Function to Style background
+const changeBackGround = function (myBackground) {
+  document.body.style.backgroundColor = myBackground;
+};
+
 // Convert strings to Numbers
 let scoreNumber = Number(document.querySelector('.score').innerText);
 let highScoreNumber = Number(document.querySelector('.highscore').innerText);
@@ -38,7 +43,7 @@ check.addEventListener('click', function () {
     displayMessage('Correct number');
     score.innerText = String(scoreNumber);
     highScore.innerText = String(highScoreNumber);
-    document.body.style.backgroundColor = '#60b347';
+    changeBackGround('#60b347');
     document.querySelector('.number').textContent = String(number);
     document.querySelector('.number').style.width = '30rem';
   } else if (guessedNumber > number) {
@@ -49,7 +54,7 @@ check.addEventListener('click', function () {
     } else {
       displayMessage('You lost the gain, press again to try once more');
       score.innerText = 0;
-      document.body.style.backgroundColor = 'red';
+      changeBackGround('red');
     }
   } else if (guessedNumber < number) {
     if (scoreNumber > 1) {
@@ -59,14 +64,14 @@ check.addEventListener('click', function () {
     } else {
       displayMessage('You lost the gain, press again to try once more');
       score.innerText = 0;
-      document.body.style.backgroundColor = 'red';
+      changeBackGround('red');
     }
   }
 });
 
 // Reset button to initialize all variables
 buttonAgain.addEventListener('click', function () {
-  document.body.style.backgroundColor = '#222';
+  changeBackGround('#222');
   displayMessage('Start guessing..');
   guess.value = '';
   score.innerText = '20';
